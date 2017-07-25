@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Content:</strong>
+  <%= @question.content %>
+</p>
+
+<%= link_to edit_question_path(@question) do%>
+<%= fa_icon 'pencil', text: 'Editar' %>
+<% end %> |
+
+<%= link_to questions_path do%>
+<%= fa_icon 'arrow-circle-left', text: 'Atrás' %>
+<% end %>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

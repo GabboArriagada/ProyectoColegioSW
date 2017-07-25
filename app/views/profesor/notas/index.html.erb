@@ -1,0 +1,31 @@
+<h1>Ingresar Notas</h1>
+
+<table class="table table-bordered table-striped">
+  <thead>
+    <tr>
+      <th>Cursos</th>
+      <th>Ver</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cursos.each do |curso| %>
+      <tr>
+        <td><%= curso.nombre %></td>
+        <td>
+          <%= link_to profesor_curso_path(curso) do %>
+            <%= fa_icon 'search', text: 'Ver' %>
+          <% end %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>

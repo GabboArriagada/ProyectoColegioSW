@@ -1,0 +1,61 @@
+<link href="https://blackrockdigital.github.io/startbootstrap-simple-sidebar/css/simple-sidebar.css" rel="stylesheet">
+<body>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+
+                </li>
+                <li>
+                    <a href=/inicio>Inicio menú</a>
+                </li><br>
+                  <% if current_user.has_role? :admin %>
+                <li>
+                    <a href=/admin>Panel de administrador</a>
+                </li><br>
+                  <%end%>
+                  <li>
+                      <a href=/calendario/index>Calendario</a>
+                  </li><br>
+                  <li>
+                      <a href=/questions>Preguntas/Respuestas</a>
+                  </li>
+                <li>
+                  <% if current_user.has_role? :profesor %>
+                    <br><%= link_to 'Ingresar notas', profesor_notas_path %>
+                  <% elsif current_user.has_role? :alumno %>
+                    <br><%= link_to 'Notas', alumno_notas_path %>
+                  <% end %>
+                </li>
+                <li>
+                  <% if current_user.has_role? :alumno %>
+                    <br><%= link_to 'Asignaturas', alumno_asignaturas_path %>
+                  <% elsif current_user.has_role? :profesor %>
+                    <br><%= link_to 'Subir archivos', profesor_asignaturas_path %>
+                  <% end %>
+                </li>
+
+                <br><br><br><br><br><br><br><br><br><br><br><br>
+                <li>
+                  <%= link_to 'Agregar/Actualizar datos', edit_user_registration_path %>
+                </li>
+            </ul>
+        </div>
+
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+</body>
